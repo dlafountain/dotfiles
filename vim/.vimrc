@@ -11,8 +11,19 @@ filetype plugin on
 compiler ruby
 set wrap
 set ruler
-colorscheme codeschool
 set number
+set nu
+
+" colorscheme codeschool
+colorscheme elflord
+
+set hlsearch
+noremap <F4> :set hlsearch! hlsearch?<CR>
+
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 let g:syntastic_python_checkers=['flake8']
 set statusline+=%#warningmsg#
@@ -43,4 +54,5 @@ fun! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,java,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
